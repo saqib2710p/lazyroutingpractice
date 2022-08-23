@@ -1,0 +1,87 @@
+<section class="vh-500 bg-image">
+  
+    <div class="mask d-flex align-items-center h-100 gradient-custom-3">
+      <div class="container h-100">
+        <div class="row d-flex justify-content-center align-items-center h-100">
+          <div class="col-12 col-md-9 col-lg-7 col-xl-6">
+            <div class="card" style="border-radius: 15px;">
+              <div class="card-body p-5">
+                <h2 class="text-uppercase text-center mb-5">Create an account</h2>
+  
+                <form [formGroup]="adduser" (ngSubmit)="addUser()">
+  
+                  <div class="row mb-1">
+                      <div class="col">
+                    <input type="text" id="form3Example1cg" class="form-control form-control-lg" autocomplete="off" formControlName="fname" />
+                    <label class="form-label" for="form3Example1cg">First Name</label>
+                  </div>
+                  <div class="col">
+                      <input type="text" id="form3Example1cg" class="form-control form-control-lg"autocomplete="off" formControlName="lname" />
+                      <label class="form-label" for="form3Example1cg">Last Name</label>
+                    </div>
+                  </div>
+  
+                  <div class="row mb-1">
+                    <input type="tel" id="form3Example3cg" class="form-control form-control-lg" formControlName="phone"/>
+                    <label class="form-label" for="form3Example3cg">Phone Number</label>
+                  </div>
+  
+                  <div class="row mb-1">
+                    <input type="text" id="form3Example4cg" class="form-control form-control-lg" formControlName="age"/>
+                    <label class="form-label" for="form3Example4cg">Age</label>
+                  </div>
+  
+                  <div class="row mb-1">
+                    <input type="text" id="form3Example4cdg" class="form-control form-control-lg" formControlName="address"/>
+                    <label class="form-label" for="form3Example4cdg">Home Address</label>
+                  </div>
+  
+                  <div class="d-flex justify-content-center">
+                    <button type="submit"
+                      class="btn btn-success btn-block btn-lg gradient-custom-4 text-body">Register</button>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+
+
+
+
+<div class="gradient-custom-3">
+<button (click)="makepdf()" class="btn btn-primary">Download with PDF</button>
+
+<div id="content" #content>
+    <h1 style="text-align: center;">All User Detials</h1>
+    <!-- <button class="btn btn-primary" (click)="loaddata">load data</button> -->
+    <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">ID</th>
+            <th scope="col">First Name</th>
+           
+            <th scope="col">Phone Number</th>
+            <th scope="col">age</th>
+            <th scope="col">Home Address</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr   *ngFor="let std of userdata">
+            <th scope="row" >1</th>
+            <td>{{std.fname}}{{std.lname}}</td>  
+    
+            <td>{{std.phone}}</td>
+            <td>{{std.age}}</td>
+            <td>{{std.address}}</td>
+          </tr>
+         
+        </tbody>
+      </table>
+</div>
+</div>

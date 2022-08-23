@@ -1,0 +1,88 @@
+
+.btnss{
+  margin-left: 40%;
+  margin-bottom: 10px;
+}
+.right-side{
+  margin-left: 50%;
+}
+.container{
+    border: 5px solid black;
+    height: fit-content;
+    margin-left: 0;
+    width: 40%;
+    margin-top: 10px;
+    margin-left: 5px;
+    /* background-color: rgba(250, 100, 0, 0.4); */
+    background-color: transparent;
+}
+
+  label {
+      /* margin-left: 40px; */
+      font-weight: 800;
+  }
+.s1{
+    display:inline-flex;
+}
+
+  span {
+    color: red;
+    font-size: 1.5em;
+  }
+  .s2 {
+    text-align: center;
+    color: white;
+  }
+
+  .s1 {
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #333;
+    justify-content:space-around;
+width: 100%;
+  }
+  
+ .topnav {
+  list-style-type: none;
+  margin: 0;
+  padding: 0px;
+  overflow: hidden;
+  background-color: #333;
+  width: auto;
+  font-size: 14px;
+  gap: 2em;
+  }
+
+  .logout {
+  width: auto;
+  width: auto;
+  padding: 10px;
+  list-style: none;
+  }
+  
+  ul.topnav li {float: left;
+gap: 5em;
+}
+  
+  ul.topnav li button {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+  }
+  
+  ul.topnav li button:hover:not(.active) {background-color: #111;}
+  
+  ul.topnav li button.active {background-color: #04AA6D;
+border-radius: 5px;
+}
+  
+  ul.topnav li.right {float: right;}
+  
+  @media screen and (max-width: 600px) {
+    ul.topnav li.right, 
+    ul.topnav li {float: none;}
+  }
+ 

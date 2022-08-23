@@ -1,0 +1,33 @@
+<nav>
+    <ul>
+    <li class="logout"><a class="btn btn-success btn-lg btn-block" role="button" routerLink="/admin/admindashboard">Back To Dashboard</a></li>
+    <input type="search" id="form1" class="form-control" placeholder="search by name" [(ngModel)]="search" />  
+  </ul>
+  </nav>
+  <h1>All Students Detials</h1>
+  <!-- <button class="btn btn-primary" (click)="loaddata">load data</button> -->
+  <table class="table">
+      <thead>
+        <tr>
+          <th scope="col">ID</th>
+          <th scope="col">First Name</th>
+         
+          <th scope="col">Phone Number</th>
+          <th scope="col">Class</th>
+          <th scope="col">Home Address</th>
+        </tr>
+      </thead>
+      <tbody>
+        <!-- {{studentdata| json
+         }} -->
+        <tr *ngFor="let std of studentdata |filter:search"> 
+          <td scope="row">1</td>
+          <td>{{std.fname}}{{std.lname}}</td>  
+  
+          <td>{{std.phone}}</td>
+          <td>{{std.class}}</td>
+          <td>{{std.address}}</td>
+        </tr>
+       
+      </tbody>
+    </table>

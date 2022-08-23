@@ -1,0 +1,470 @@
+<nav>
+  <div class="s1">
+    <h1 class="s2" routerLink="/home" style="cursor: pointer;"><span>S</span>tore <span>N</span>ame</h1>
+
+    <ul class="topnav">
+      <li><button (click)="toggle1()" class="active m-2" style="cursor: pointer;" >Add Cash Closing Sheet</button></li>
+      <li><button (click)="toggle()" class="active m-2"  style="cursor: pointer;">All Cash Closing Sheet</button></li>
+      <li><a  style="cursor: pointer;" class="btn btn-danger mt-3 m-2">Login</a></li>
+
+    </ul>
+
+  </div>
+</nav>
+<ng-container *ngIf="hide">
+<div class="container ">
+  <h1 style="text-align:center ;">
+    Closing Sheet
+  </h1>  {{id}}
+  <form class="form-group" #add="ngForm" (ngSubmit)="add.form.valid && (id ==0? onSubmit(): onupdate(closings.id))">
+    <div class="left-side">
+    <div class="row">
+      <div class="col">
+        <label class="form-control text-center" style="font-size: 1.2em; font-weight: 500;">Enter Date</label>
+        <input class="form-control mt-2" type="date" id="Date" name="Date" #Date="ngModel" [(ngModel)]="closings.Date"
+          required>
+        <small *ngIf="!Date.valid && Date.touched" class="text-danger">**Date is required</small>
+      </div>
+      <div class="col">
+        <label class="form-control text-center" style="font-size: 1.2em; font-weight: 500;">Enter DAY</label>
+        <input class="form-control mt-2" type="tex" id="Day" name="Day" #Day="ngModel" [(ngModel)]="closings.Day"
+          required>
+        <small *ngIf="!Day.valid && Day.touched" class="text-danger">**Day is required</small>
+      </div>
+    </div>
+    <div class="row">
+
+      <div class="col p-2">
+        <label class="form-control ">Till No</label>
+        <input class="form-control mt-1" type="number" placeholder="Enter Till No" id="tillno" name="tillno"
+          #tillno="ngModel" [(ngModel)]="closings.tillno" required>
+        <small *ngIf="!tillno.valid && tillno.touched" class="text-danger">**Till No is required</small>
+      </div>
+      <div class="col p-2">
+        <label class="form-control">Cashier Name</label>
+        <input class="form-control mt-1" type="text" placeholder="Enter Name" id="name" name="name" #name="ngModel"
+          [(ngModel)]="closings.name" required>
+        <small *ngIf="!name.valid && name.touched" class="text-danger">**Cashier Name is required</small>
+      </div>
+
+    </div>
+    <table class="table table-bordered">
+      <thead class="text-center">
+        <th scope="col">Currency</th>
+        <th scope="col"></th>
+        <th scope="col">No of Currency</th>
+
+
+        <th scope="col">Total Amount</th>
+
+      </thead>
+      <tbody class="text-center">
+        <tr>
+          <td>5000</td>
+          <td>*</td>
+          <td>
+            <input class="form-control" type="number" placeholder="Enter " id="fivethousand" name="fivethousand"
+              #fivethousand="ngModel" [(ngModel)]="closings.fivethousand">
+
+          </td>
+          <td>{{closings.fivethousand*5000}}</td>
+        </tr>
+        <tr>
+          <td>1000</td>
+          <td>*</td>
+          <td> <input (input)="rft()" class="form-control" type="number" placeholder="Enter" id="onethousand"
+              name="onethousand" #onethousand="ngModel" [(ngModel)]="closings.onethousand">
+
+          </td>
+          <td>{{closings.onethousand*1000}}</td>
+        </tr>
+        <tr>
+          <td>500</td>
+          <td>*</td>
+          <td> <input class="form-control" type="number" placeholder="Enter " id="fivehundred" name="fivehundred"
+              #fivehundred="ngModel" [(ngModel)]="closings.fivehundred">
+          </td>
+          <td>{{closings.fivehundred*500}}</td>
+        </tr>
+        <tr>
+          <td>100</td>
+          <td>*</td>
+          <td> <input class="form-control" type="number" placeholder="Enter " id="onehundred" name="onehundred"
+              #onehundred="ngModel" [(ngModel)]="closings.onehundred">
+          </td>
+          <td>{{closings.onehundred*100}}</td>
+        </tr>
+        <tr>
+          <td>50</td>
+          <td>*</td>
+          <td> <input class="form-control" type="number" placeholder="Enter " id="fifty" name="fifty" #fifty="ngModel"
+              [(ngModel)]="closings.fifty">
+          </td>
+          <td>{{closings.fifty*50}}</td>
+        </tr>
+        <tr>
+          <td>10</td>
+          <td>*</td>
+          <td> <input class="form-control" type="number" placeholder="Enter " id="ten" name="ten" #ten="ngModel"
+              [(ngModel)]="closings.ten" required>
+          </td>
+          <td>{{closings.ten*10}}</td>
+        </tr>
+        <tr>
+          <td>5</td>
+          <td>*</td>
+          <td> <input class="form-control" type="number" placeholder="Enter " id="five" name="five" #five="ngModel"
+              [(ngModel)]="closings.five">
+          </td>
+          <td>{{closings.five*5}}</td>
+        </tr>
+        <tr>
+          <td>2</td>
+          <td>*</td>
+          <td> <input class="form-control" type="number" placeholder="Enter " id="two" name="two" #two="ngModel"
+              [(ngModel)]="closings.two">
+          </td>
+          <td>{{closings.two*2}}</td>
+        </tr>
+        <tr>
+          <td>1</td>
+          <td>*</td>
+          <td> <input class="form-control" type="number" placeholder="Enter " id="one" name="one" #one="ngModel"
+              [(ngModel)]="closings.one">
+          </td>
+          <td>{{closings.one*1}}</td>
+        </tr>
+        <th colspan="3" style="font-size: 1.5em; border: 2px solid black;">
+          Total Cash
+        </th>
+        <th style="font-size: 1.5em; border: 2px solid black;">
+          {{rft()}}
+        </th>
+        
+      </tbody>
+    </table>
+    </div>
+       <table class="table"> 
+          <tr>
+            <td>Bills</td>
+            <td colspan="2" class="text-center"><button type="button" class="btn btn-primary w-50 mb-1" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+              Add Bills
+            </button></td>
+            <td>result</td>
+          </tr>
+          <tr>
+            <td>Bills</td>
+            <td colspan="2"  class="text-center"><button type="button" class="btn btn-primary w-50 mt-1" data-bs-toggle="modal" data-bs-target="#staticBackdrops">
+              Add Office 
+            </button></td>
+            <td>result</td>
+          </tr>
+        </table>
+        
+      
+  
+    <div class=""></div>
+    <button type="submit" class="btn btn-success btnss" [disabled]="!add.valid">
+      {{id == 0? submit : update}}</button>
+  </form>
+
+</div>
+</ng-container>
+<br>
+<ng-container *ngIf="shows">
+<table class="table">
+  <thead class="text-center" style="border:2px solid black;padding: 10px;">
+    <th>ID</th>
+    <th>Till No</th>
+    <th>Date</th>
+    <th>Day</th>
+    <th>Cashier Name</th>
+    <th>File</th>
+    <th>Action</th>
+  </thead>
+  <tbody>
+    <tr *ngFor="let Closing of getsheet;let i =index" class="text-center" style="border:2px solid black">
+      <td>{{i+1}}</td>
+      <td>{{Closing.tillno}}</td>
+      <td>{{Closing.Date}}</td>
+      <td>{{Closing.Day}}</td>
+      <td>{{Closing.name}}</td> 
+      <td><button type="button" (click)="editEmployee(Closing,i)"  class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" >
+          File View
+        </button></td>
+        <td><button  class="btn btn-success m-2" (click)="editsheet(Closing,i)">Update</button>
+          <button class="btn btn-danger" (click)="onDeletesheet(i)">Delete</button>
+        </td>
+    </tr>
+  </tbody>
+</table>
+</ng-container>
+<!-- Modal sheet -->
+
+
+
+ 
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true"  #showsheetButton>
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Closing Sheet</h5>
+        <button (click)="print()" class="btn btn-primary" style="margin-left:40%;">PDF Download</button>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div id="content" #content>
+      <div class="modal-body" >
+        <div>
+          <h1 style="text-align:center ;">
+            Store Name
+          </h1>
+            
+          <div class="row" >
+            <div class="col">
+              <label class="form-control text-center" style=" font-weight: 500;">Date:{{rclosings.Date}} </label>
+
+            </div>
+            <div class="col">
+              <label class="form-control text-center" style=" font-weight: 500;">DAY:{{rclosings.Day}} </label>
+
+            </div>
+          </div>
+          <div class="row">
+
+            <div class="col p-2">
+              <label class="form-control ">Till No:{{rclosings.tillno}}  </label>
+
+            </div>
+            <div class="col p-2">
+              <label class="form-control">Cashier Name:{{rclosings.name}}  </label>
+
+            </div>
+
+          </div>
+          <table class="table table-bordered">
+            <thead class="text-center">
+              <th scope="col">Currency</th>
+              <th scope="col"></th>
+              <th scope="col">No of Currency</th>
+
+
+              <th scope="col">Total Amount</th>
+
+            </thead>
+            <tbody class="text-center">
+              <tr>
+                <td>5000</td>
+                <td>*</td>
+                <td>
+                  {{rclosings.fivethousand}}
+
+                </td>
+                <td>{{5000*rclosings.fivethousand}}</td>
+              </tr>
+              <tr>
+                <td>1000</td>
+                <td>*</td>
+                <td>
+                  {{rclosings.onethousand}}
+                </td>
+                <td> {{1000*rclosings.onethousand}} </td>
+              </tr>
+              <tr>
+                <td>500</td>
+                <td>*</td>
+                <td> {{rclosings.fivehundred}}
+                </td>
+                <td>{{500*rclosings.fivehundred}}</td>
+              </tr>
+              <tr>
+                <td>100</td>
+                <td>*</td>
+                <td> {{rclosings.onehundred}}
+                </td>
+                <td>{{100*rclosings.onehundred}}</td>
+              </tr>
+              <tr>
+                <td>50</td>
+                <td>*</td>
+                <td>{{rclosings.fifty}}
+                </td>
+                <td>{{100*rclosings.fifty}}</td>
+              </tr>
+              <tr>
+                <td>10</td>
+                <td>*</td>
+                <td>{{rclosings.ten}}
+                </td>
+                <td>{{10*rclosings.ten}}</td>
+              </tr>
+              <tr>
+                <td>5</td>
+                <td>*</td>
+                <td>{{rclosings.five}}
+                </td>
+                <td>{{5*rclosings.five}}</td>
+              </tr>
+              <tr>
+                <td>2</td>
+                <td>*</td>
+                <td>{{rclosings.two}}
+                </td>
+                <td>{{2*rclosings.two}}</td>
+              </tr>
+              <tr>
+                <td>1</td>
+                <td>*</td>
+                <td>{{rclosings.one}}
+                </td>
+                <td>{{1*rclosings.one}}</td>
+              </tr>
+              <th colspan="3" style="font-size: 1.5em; border: 2px solid black;">
+                Total Cash
+              </th>
+              <th style="font-size: 1.5em; border: 2px solid black;">{{rftr()}}
+              </th>
+
+
+
+            </tbody>
+          </table>
+
+
+        </div>
+      </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+<!-- Modal -->
+<div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="staticBackdropLabel">Ad Bills</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form #addbil="ngForm">
+          <div class="form-group">
+            <label for="name">Enter your Bill Name</label>
+            <input type="text" class="form-control" id="billname" name="billname"
+              #billname="ngModel" [(ngModel)]="addbills.billname" required>
+          </div>
+          <div class="form-group">
+            <label for="name">Enter Bill Amount</label>
+            <input type="text" class="form-control" id="billamount" name="billamount"
+              #billamount="ngModel" [(ngModel)]="addbills.billamount" required>
+          </div>
+          <br>
+          <button type=" submit" class="btn btn-primary" [disabled]="!addbil.valid" (click)="onADD()">Add Department</button>
+        </form>
+        <div class="row">
+          <!-- <ng-container *ngIf="show"> -->
+         <div >
+           <table class="table table-striped">
+             <thead>
+               <tr>
+                 <th>Bill Name </th>
+                 <th>Bill Amount</th>
+                 <th>Action </th>
+        
+               </tr>
+             </thead>
+             <tbody>
+               <tr *ngFor='let users of closings.addbills; let i=index'>
+                 <td> {{users.billname}} </td>
+                 <td> {{users.billamount}} </td>
+               
+                 <td>
+                   <i class='fas fa-edit' style='font-size:24px' (click)="onEdit(i)"></i>
+                   <i class='fas fa-trash-alt' style='font-size:24px' (click)="onDelete(i)"></i>
+        
+                 </td>
+               </tr>
+               <tr>
+                <th>Total Bill Amount</th>
+                <th>{{sum}}</th>
+               </tr>
+             </tbody>
+           </table>
+         </div>
+        <!-- </ng-container> -->
+          </div>
+      </div>
+      <!-- <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Understood</button>
+      </div> -->
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="staticBackdrops" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="staticBackdropLabel">Ad Bills</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form #addbil="ngForm">
+          <div class="form-group">
+            <label for="name">Enter your Bill Name</label>
+            <input type="text" class="form-control" id="billname" name="billname"
+              #billname="ngModel" [(ngModel)]="addbills.billname" required>
+          </div>
+          <div class="form-group">
+            <label for="name">Enter Bill Amount</label>
+            <input type="text" class="form-control" id="billamount" name="billamount"
+              #billamount="ngModel" [(ngModel)]="addbills.billamount" required>
+          </div>
+          <br>
+          <button type=" submit" class="btn btn-primary" [disabled]="!addbil.valid" (click)="onADD()">Add Department</button>
+        </form>
+        <div class="row">
+          <!-- <ng-container *ngIf="show"> -->
+         <div >
+           <table class="table table-striped">
+             <thead>
+               <tr>
+                 <th>Bill Name </th>
+                 <th>Bill Amount</th>
+                 <th>Action </th>
+        
+               </tr>
+             </thead>
+             <tbody>
+               <tr *ngFor='let users of closings.addbills; let i=index'>
+                 <td> {{users.billname}} </td>
+                 <td> {{users.billamount}} </td>
+               
+                 <td>
+                   <i class='fas fa-edit' style='font-size:24px' (click)="onEdit(i)"></i>
+                   <i class='fas fa-trash-alt' style='font-size:24px' (click)="onDelete(i)"></i>
+        
+                 </td>
+               </tr>
+               <tr>
+                <th>Total Bill Amount</th>
+                <th>{{sum}}</th>
+               </tr>
+             </tbody>
+           </table>
+         </div>
+        <!-- </ng-container> -->
+          </div>
+      </div>
+      <!-- <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Understood</button>
+      </div> -->
+    </div>
+  </div>
+</div>
+

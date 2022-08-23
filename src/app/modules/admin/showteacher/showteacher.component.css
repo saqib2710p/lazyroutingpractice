@@ -1,0 +1,11 @@
+li {
+    float: right;
+    list-style:none ;
+}
+input{
+    width: 30%;
+    margin-left: 5px;
+    margin-top: 1%;
+    
+    margin-right: 0;
+}

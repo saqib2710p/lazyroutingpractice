@@ -1,0 +1,131 @@
+{
+  "posts": [
+    {
+      "firstname": "Saqib",
+      "lastname": "Awan",
+      "birthdate": "2022-06-29",
+      "gender": "m",
+      "education": "post graduate",
+      "company": "Technocares",
+      "jobExperience": 5,
+      "salary": 10000,
+      "profile": "image-file.jfif",
+      "id": 1
+    }
+  ],
+  "teacher": [
+    {
+      "name": "saqib",
+      "age": "22",
+      "id": 1
+    },
+    {
+      "name": "usman",
+      "age": "24",
+      "id": 2
+    },
+    {
+      "name": "ali",
+      "age": "26",
+      "id": 3
+    },
+    {
+      "name": "iqra",
+      "age": "23",
+      "id": 4
+    },
+    {
+      "name": "zain",
+      "age": "26",
+      "id": 5
+    }
+  ],
+  "student": [],
+  "employee": [
+    {
+      "name": "Iqra",
+      "age": "23",
+      "id": 3,
+      "email": "iqra@gmail.com",
+      "phone": "03021568794",
+      "address": "Manawan Lahore",
+      "departmentname": "botny",
+      "departmentcode": "6541",
+      "departmentlocation": "Doctor"
+    },
+    {
+      "name": "hhhdfhdfh",
+      "age": "dfhdfh",
+      "id": 4,
+      "email": "dfhdfh",
+      "phone": "dfhdfh",
+      "address": "fhdfhfd"
+    }
+  ],
+  "usermessage": [
+    {
+      "name": "saqib",
+      "id": 1,
+      "email": "Saqib@gmail.com",
+      "message": "Hello Saqib  bhai"
+    },
+    {
+      "name": "afaq",
+      "id": 2,
+      "email": "afaq@gmail.com",
+      "message": "hello Afaq bhai\n"
+    },
+    {
+      "name": "svfsf",
+      "id": 3,
+      "email": "asfasf",
+      "message": "asfasf"
+    },
+    {
+      "name": null,
+      "id": 4,
+      "email": null,
+      "message": null
+    },
+    {
+      "name": "fsafas",
+      "id": 5,
+      "email": "asfsf",
+      "message": "sfsaf"
+    },
+    {
+      "name": "gffg",
+      "id": 6,
+      "email": "ghgh",
+      "message": "dfhdfhd"
+    },
+    {
+      "name": "jgfgj",
+      "id": 7,
+      "email": "jgjg",
+      "message": "gjgj"
+    }
+  ],
+  "closing": [
+    {
+      "fivethousand": 475,
+      "onethousand": 454,
+      "fivehundred": 45,
+      "onehundred": 45,
+      "fifty": 45,
+      "ten": 45,
+      "five": 45,
+      "two": 45,
+      "one": 450,
+      "Date": "2022-08-10",
+      "Day": "fgsgd",
+      "name": "gsdgsdg",
+      "tillno": 14,
+      "id": 2
+    }
+  ],
+  "comments": [],
+  "profile": {
+    "name": "typicode"
+  }
+}

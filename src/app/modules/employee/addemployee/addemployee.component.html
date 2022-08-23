@@ -1,0 +1,216 @@
+<body>
+  <section>
+    <ul>
+      <li class="logout"><a class="btn btn-success btn-lg btn-block" role="button"
+          routerLink="/employee/employeedashboard">Back To Dashboard</a></li>
+      <li class="logout"><a class="btn btn-success btn-lg btn-block" role="button"
+          routerLink="/employee/showemployee">Go to Employee Detials</a></li>
+    </ul>
+    <h1>Add New Employee</h1>
+  </section>
+
+  <!-- <div class="container">
+    <div class="row ">
+      <form class="form-group" [formGroup]="employeeForm" (ngSubmit)="onSubmit()">
+        <div class="col-6">
+          <label>Name</label>
+          <input class="form-control" type="text" formControlName="name" required />
+          <label>Email:</label>
+          <input class="form-control" type="email" formControlName="email" />
+          <label>Phone</label>
+          <input class="form-control" type="text" formControlName="phone" />
+          <label>Age</label>
+          <input class="form-control" type="text" formControlName="age" />
+          <label>Address</label>
+          <input class="form-control" type="text" formControlName="address" />
+
+        </div>
+
+
+        <div class="col-6">
+          <div> <button style="margin: left 30%;" class="btn btn-success" type="button" (click)="toggle()">Add
+              Department</button></div>
+          <div *ngIf="hide">
+            
+              <h3>Employee Depatment</h3>
+               <button (click)="addTechnology()">Add Technology</button> 
+
+              <div *ngFor="let o of technology.controls; let i = index"> 
+                <div [formGroup]="depart">
+                  <label>
+                     Department:{{ i + 1 }} 
+                    Department Code
+                  </label>
+                  <input class="form-control" type="text" name="departmentcode" formControlName="departmentcode" />
+
+                  <label>
+                    Department Name
+                  </label>
+                  <input class="form-control" type="text" name="departmentcode" formControlName="departmentname" />
+
+                  <label>
+                    Department field
+                  </label>
+                  <input class="form-control" type="text" name="departmentfield" formControlName="departmentfield" />
+
+                </div>
+
+                <button class="btn btn-primary" (click)="submitdepart()">Submit Department</button>
+               
+                <table class="table">
+                  <tr>
+                    <th>Department Code</th>
+                    <th>Department Name</th>
+                    <th>Department Field</th>
+                  </tr>
+                  <tr *ngFor="let dep of Department">
+                    <td>{{dep.departmentcode}}</td>
+                    <td>{{dep.departmentname}}</td>
+                    <td>{{dep.departmentfield}</td>
+                  </tr>
+                </table>
+               
+
+              </div>
+            </div>
+           </div> 
+       
+
+
+        <br><br>
+        <div class="row">
+          <button class="hide" type="submit" [disabled]="!employeeForm.valid">Submit</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+
+  -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+  <p>Form Value: {{ employeeForm.value | json }}</p>
+
+  <p>Form Status: {{ employeeForm.status }}</p>
+
+
+
+
+
+
+  <div class="row">
+    <app-showemployee></app-showemployee>
+  </div> -->
+  {{Id}}
+  <!-- <div class="container box"> -->
+    <div *ngIf="show" class="alert alert-success alert-dismissible show">
+      <button (click)="closealert()"  class="close" data-dismiss="alert" aria-label="close">&times;></button>
+      <strong>Success!</strong> New Employee Data Insert Success
+    </div>
+    <div *ngIf="shows" class="alert alert-success alert-dismissible show">
+      <button (click)="closealerts()"  class="close" data-dismiss="alert" aria-label="close">&times;></button>
+      <strong>Success!</strong> Update Data Success
+    </div>
+  <form class="form-group" (ngSubmit)="f.form.valid && (Id ==0? onSubmit(): onupdate())" #f="ngForm">
+    <div class="row set">
+      <div class="col box">
+        <h3>Add New Employee</h3>
+        <div class="form-group">
+
+          <label for="name">Enter your Name</label>
+          <input type="text" class="form-control" id="FirstName" name="FirstName" #FirstName="ngModel"
+            [(ngModel)]="employee.Name" required>
+          <small *ngIf="!FirstName.valid && FirstName.touched" class="text-danger">**First Name is required</small>
+        </div>
+        <div class="form-group">
+          <label for="name">Email</label>
+          <input type="email" class="form-control" id="Email" name="Email" #Email="ngModel" [(ngModel)]="employee.Email"
+            required>
+          <small *ngIf="!Email.valid && Email.touched" class="text-danger">**Email is required</small>
+        </div>
+        <div class="form-group">
+          <label for="name">Enter your Phone</label>
+          <input type="text" class="form-control" id="Phone" name="Phone" #Phone="ngModel" [(ngModel)]="employee.Phone"
+            required>
+          <small *ngIf="!Phone.valid && Phone.touched" class="text-danger">**Phone is required</small>
+        </div>
+        <div class="form-group">
+          <label for="name">Enter your Age</label>
+          <input type="text" class="form-control" id="Age" name="Age" #Age="ngModel" [(ngModel)]="employee.Age"
+            required>
+          <small *ngIf="!Age.valid && Age.touched" class="text-danger">**Age is required</small>
+        </div>
+        <div class="form-group">
+          <label for="name">Enter your Address</label>
+          <textarea type="text" class="form-control" id="Address" name="Address" #Address="ngModel"
+            [(ngModel)]="employee.Address" required></textarea>
+          <small *ngIf="!Address.valid && Address.touched" class="text-danger">**Address is required</small>
+        </div>
+        
+      </div>
+      
+      <div class="col box">
+       
+        <div class="container">
+          <!-- <button class="btn btn-primary bttn" (click)="show=!show">Add Department Detials</button> -->
+          <!-- <ng-container *ngIf="show"> -->
+          <h3>Enter your Department details
+          </h3>
+          <form #add="ngForm">
+            <div class="form-group">
+              <label for="name">Enter your Department Code</label>
+              <input type="text" class="form-control" id="departmentcode" name="departmentcode"
+                #departmentcode="ngModel" [(ngModel)]="Department.DepartmentCode" required>
+            </div>
+            <div class="form-group">
+              <label for="name">Enter your Department Name</label>
+              <input type="text" class="form-control" id="departmentname" name="departmentname"
+                #departmentname="ngModel" [(ngModel)]="Department.DepartmentName" required>
+            </div>
+            <div class="form-group">
+              <label for="name">Enter your Department Field</label>
+              <input type="text" class="form-control" id="departmentfield" name="departmentfield"
+                #departmentname="ngModel" [(ngModel)]="Department.DepartmentField" required>
+            </div>
+            <button type=" submit" class="btn btn-secondary bttn" [disabled]="!add.valid" (click)="onADD()">Add Department</button>
+          </form>
+        
+        <!-- </ng-container> -->
+        </div>
+       
+    </div>
+  
+  </div>
+  <div class="row set">
+  <!-- <ng-container *ngIf="show"> -->
+ <div class="container">
+   <table class="table">
+     <thead>
+       <tr>
+         <th> Department Code </th>
+         <th> Department Name </th>
+         <th> Department Field </th>
+
+       </tr>
+     </thead>
+     <tbody>
+       <tr *ngFor='let users of employee.Department; let i=index'>
+         <td> {{users.DepartmentCode}} </td>
+         <td> {{users.DepartmentName}} </td>
+         <td> {{users.DepartmentField}} </td>
+         <td>
+           <i class='fas fa-edit' style='font-size:24px' (click)="onEdit(i)"></i>
+           <i class='fas fa-trash-alt' style='font-size:24px' (click)=onDelete(i)></i>
+
+         </td>
+       </tr>
+     </tbody>
+   </table>
+ </div>
+<!-- </ng-container> -->
+  </div>
+    <button type="submit" class="btn btn-success btnsssss" [disabled]="!f.valid">
+      {{Id == 0? submit : update}}</button>
+  </form>
+  
+
+
+</body>

@@ -1,0 +1,52 @@
+button{
+    padding: 10px;
+    margin-top: 10px;
+    float: right;
+    margin-right: 10%;
+}
+
+button:hover{
+    background-color: green;
+    border: 5px solid green;
+
+}
+
+
+
+#content{
+    width: 542px;
+    height: 842px;
+    margin-left: 25%;
+}
+#table{
+    max-width: 2480px;
+    width: 100%;
+}
+
+#table td {
+ width: auto;
+ overflow: hidden;
+ word-wrap: break-word;
+ text-align: center;
+}
+
+.gradient-custom-3 {
+    /* fallback for old browsers */
+    background: #84fab0;
+    
+    /* Chrome 10-25, Safari 5.1-6 */
+    background: -webkit-linear-gradient(to right, rgba(132, 250, 176, 0.5), rgba(143, 211, 244, 0.5));
+    
+    /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    background: linear-gradient(to right, rgba(132, 250, 176, 0.5), rgba(143, 211, 244, 0.5))
+    }
+    .gradient-custom-4 {
+    /* fallback for old browsers */
+    background: #84fab0;
+    
+    /* Chrome 10-25, Safari 5.1-6 */
+    background: -webkit-linear-gradient(to right, rgba(132, 250, 176, 1), rgba(143, 211, 244, 1));
+    
+    /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    background: linear-gradient(to right, rgba(132, 250, 176, 1), rgba(143, 211, 244, 1))
+    }

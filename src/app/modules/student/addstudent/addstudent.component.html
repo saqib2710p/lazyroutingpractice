@@ -1,0 +1,55 @@
+<section class="vh-500 bg-image">
+  
+  <div class="mask d-flex align-items-center h-100 gradient-custom-3">
+    <div class="container h-100">
+      <div class="row d-flex justify-content-center align-items-center h-100">
+        <div class="col-12 col-md-9 col-lg-7 col-xl-6">
+          <div class="card" style="border-radius: 15px;">
+            <div class="card-body p-5">
+              <h2 class="text-uppercase text-center mb-5">Create an account</h2>
+
+              <form [formGroup]="addstudent" (ngSubmit)="addstudents()">
+
+                <div class="row mb-1">
+                    <div class="col">
+                  <input type="text" id="form3Example1cg" class="form-control form-control-lg" autocomplete="off" formControlName="fname" />
+                  <label class="form-label" for="form3Example1cg">First Name</label>
+                </div>
+                <div class="col">
+                    <input type="text" id="form3Example1cg" class="form-control form-control-lg"autocomplete="off" formControlName="lname" />
+                    <label class="form-label" for="form3Example1cg">Last Name</label>
+                  </div>
+                </div>
+
+                <div class="row mb-1">
+                  <input type="tel" id="form3Example3cg" class="form-control form-control-lg" formControlName="phone"/>
+                  <label class="form-label" for="form3Example3cg">Phone Number</label>
+                </div>
+
+                <div class="row mb-1">
+                  <input type="text" id="form3Example4cg" class="form-control form-control-lg" formControlName="class"/>
+                  <label class="form-label" for="form3Example4cg">Class</label>
+                </div>
+
+                <div class="row mb-1">
+                  <input type="text" id="form3Example4cdg" class="form-control form-control-lg" formControlName="address"/>
+                  <label class="form-label" for="form3Example4cdg">Home Address</label>
+                </div>
+
+                <div class="d-flex justify-content-center">
+                  <button type="submit"
+                    class="btn btn-success btn-block btn-lg gradient-custom-4 text-body">Register</button>
+                </div>
+
+                <p class="text-center text-muted mt-5 mb-0">If You add Student? <a href="#!"
+                    class="fw-bold text-body" routerLink="/student/studentdashboard"><u>Back To Student Dashboard</u></a></p>
+
+              </form>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
